@@ -1,5 +1,4 @@
 import xlrd
-import datetime, time, threading, textwrap, re, os
 from bs4 import BeautifulSoup
 from urllib2 import urlopen
 from xlrd.sheet import ctype_text
@@ -29,7 +28,6 @@ for sheet_num in range(0, tot_sheets):
 			cell_obj = sheet.cell(row_idx, col_idx)
 			name.append('{}'.format(cell_obj.value))
 		name_str = '+'.join([item.strip() for item in ''.join(name[1] + ' ' + name[0]).split(' ') if item])
-		#name_str = name[1].strip() + '+' + name[0].strip()
 
 		ws.write(row_idx, 0, name[1])
 		ws.write(row_idx, 1, name[0])
@@ -41,7 +39,6 @@ for sheet_num in range(0, tot_sheets):
 			print 'Error: ' + name[1] + ' ' + name[0]
 			print ''
 		else:
-			# add to excel
-			# print s[0]
 			ws.write(row_idx, 2, s)
-new_wb.save('testingggg.xls')
+
+new_wb.save('new_file.xls')
